@@ -1,4 +1,4 @@
-#Dataset
+# Dataset
 |Name|Row|Distinct|Column|Disk|Memory
 --------------|:-----:|-----:|----:|----:|------------------------
 |train.gz|40,428,967|40,428,967|24|1.04G|9.52G
@@ -8,7 +8,7 @@
 - 無重複資料。
 - 總共提供 24 個欄位，扣除 `id` 與 `click` (response) 後，有 22 個欄位可以用來產生特徵。
 
-#Summary
+# Summary
 |Fields|Description|Type|Missing|Distinct (train)|Distinct (test)
 --------------|:-----:|-----:|----:|----:|------------------------
 |id|Ad identifier|Continuous|0|40,428,967|4,577,464	
@@ -39,21 +39,21 @@
 - 無缺失資料
 - 大量的類別型資料，且 level 數高。
 
-#Preprocessing
+# Preprocessing
 - `hour` 欄位抽取出最後兩位數(HH)，並視為 category。
 
-#Feature Extraction
+# Feature Extraction
 - Count Encoder
 - Leave One Out
 - Target Encoder
 - Weight of Evidence
 - CatBoost Encoder
 
-#Feature Selection
+# Feature Selection
 - 對每一個 feature 計算 F-test 檢定量。
 - 根據 F-test 結果，保留最顯著的 p% 個 feature。(p 視為參數，後續調參決定)
 
-#Model Selection
+# Model Selection
 - 訓練集樣本數: 2,000,000
 - 線下測試集樣本數: 20,428,967
 - CV: time series split
@@ -61,13 +61,13 @@
 - CV: 驗證集樣本數: 200,000
 - 模型: logistic regression
 
-#Hyperparameter Tuning
+# Hyperparameter Tuning
 - 參數1: 選擇 p% 個 feature
 - 參數2: 模型有/無截距項
 - 參數3: 模型使用 l1/l2 norm
 - 隨機生成 5 個參數組合，並找出 CV score 最高的參數組合，當作最後訓練參數。
 
-#Evaluation
+# Evaluation
 |模型(encoder)|Test Score(線下)|Private Score|
 --------------:|-----:|---
 |loo|-0.40369|-0.40695
