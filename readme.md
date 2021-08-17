@@ -54,7 +54,7 @@
 - 根據 F-test 結果，保留最顯著的 p% 個 feature。(p 視為參數，後續調參決定)
 
 #Model Selection
-- 訓練集樣本數: 2,000,000
+- 訓練集樣本數: 20,000,000
 - 線下測試集樣本數: 20,428,967
 - CV: time series split
 - CV: 3 fold
